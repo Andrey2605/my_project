@@ -1,10 +1,9 @@
-from src.masks import get_mask_account, get_mask_card_number
+from src.widget import mask_account_card
 
-number_card = input("Введите номер карты: ")
-number_account = input("Введите номер счета: ")
+user = input("Введите номер карты или номер счета: ")
 
-print(get_mask_card_number(number_card))
-print(get_mask_account(number_account))
+print(mask_account_card(user))
+
 
 # 1234567891234567
 # 12345678912345678912
