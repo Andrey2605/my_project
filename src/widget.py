@@ -5,10 +5,10 @@ def mask_account_card(user: str) -> str:
     """Функция для определения вводимых данных карты или счета"""
     if "Счет" in user:
         mask_account = user[-20:]
-        return get_mask_account(mask_account)
+        return f"{user[:-20]}"+ get_mask_account(mask_account)
     else:
         card_number = user[-16:]
-        return get_mask_card_number(card_number)
+        return f"{user[:-16]}"+ get_mask_card_number(card_number)
 
 
 def get_date(date: str) -> str:
