@@ -8,7 +8,8 @@ list = [
 state = "EXECUTED"
 
 
-def filter_by_state(state):
+def filter_by_state(state: str) -> str:
+    '''Функция возвращает новый список словарей, у которых ключ state соответствует указанному значению'''
     new_list = []
     for dictonary in list:
         if dictonary["state"] == state:
@@ -17,3 +18,12 @@ def filter_by_state(state):
 
 
 print(filter_by_state(state))
+
+
+def sort_by_date():
+    """Функция возвращает новый список, отсортированный по дате"""
+    sorted_list = sorted(list, key=lambda x: x["date"], reverse=True)
+    return sorted_list
+
+
+print(sort_by_date())
