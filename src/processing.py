@@ -20,10 +20,10 @@ def filter_by_state(state: str) -> str:
 print(filter_by_state(state))
 
 
-def sort_by_date(string: str)-> str:
+def sort_by_date(list: str)-> str:
     """Функция возвращает новый список, отсортированный по дате"""
     sorted_list = sorted(list, key=lambda x: x["date"], reverse=True)
     return sorted_list
 
 
-print(sort_by_date())
+print(sort_by_date(list))
