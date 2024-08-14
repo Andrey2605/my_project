@@ -1,13 +1,13 @@
 def get_mask_card_number(card_number: str) -> str:
     """Функцию маскировки номера банковской карты"""
-    if card_number.isdigit() and len(card_number) == 16:
-        return f"{card_number[:4]} {card_number[5:7]}{"*" * 2} {"*" * 4} {card_number[12:]}"
+    if card_number[-16:].isdigit() and card_number[-16:] == 16:
+        return f"{card_number[:-16]} {card_number[-16:-12]} {card_number[-13:-11]}{"*" * 2} {"*" * 4} {card_number[-4:]}"
     else:
         return "Не корректные данные"
 
 
 def get_mask_account(mask_account: str) -> str:
-    if mask_account.isdigit() and len(mask_account) == 20:
-        return f"{"*" * 2} {mask_account[16:]}"
+    if mask_account[-20:].isdigit() and mask_account[-20:] == 20:
+        return f"{mask_account[:-20]} {"*" * 2}{mask_account[-4:]}"
     else:
         return "Не корректные данные"
