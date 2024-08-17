@@ -27,24 +27,23 @@ def test_get_mask_account(account, mask_account):
     assert get_mask_account(account) == mask_account
 
 
-def test_get_mask_card_number(incorrect_data):
+def test_get_mask_right_card_number(incorrect_data):
     """Тестирование на првильность ввода номера карт"""
     assert get_mask_card_number("1234") == incorrect_data
     assert get_mask_card_number("hello") == incorrect_data
 
 
-def test_get_mask_card_number(incorrect_data):
+def test_get_mask_card_not_number(incorrect_data):
     """Тест при отстутствии номера карты"""
     assert get_mask_card_number("") == incorrect_data
 
 
-def test_get_mask_account(incorrect_data):
+def test_get_mask_right_account(incorrect_data):
     """Тестирование на првильность ввода счета"""
-    assert get_mask_account("123514564684454564545645645456") == incorrect_data
+    assert get_mask_account("12351") == incorrect_data
     assert get_mask_account("hello!") == incorrect_data
 
 
-
-def test_get_mask_account(incorrect_data):
+def test_get_mask_not_account(incorrect_data):
     """Тест при отсутствии номера счета"""
     assert get_mask_account("") == incorrect_data

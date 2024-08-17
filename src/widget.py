@@ -17,3 +17,4 @@ def get_date(date: str) -> str:
         return f"{date[8:10]}.{date[5:7]}.{date[:4]}"
     else:
         return "Не корректные данные"
+

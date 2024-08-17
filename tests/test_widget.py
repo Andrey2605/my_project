@@ -1,6 +1,6 @@
 import pytest
 
-from src.widget import mask_account_card
+from src.widget import mask_account_card, get_date
 
 
 @pytest.mark.parametrize(
@@ -21,7 +21,7 @@ def test_mask_account_card(number, mask_account_and_card):
     assert mask_account_card(number) == mask_account_and_card
 
 
-def test_mask_account_card(incorrect_data):
+def test_mask_account_card_errors(incorrect_data):
     """Тестирование функции на обработку некорректных входных данных и проверка ее устойчивости к ошибкам."""
     assert mask_account_card("Счет 1234") == incorrect_data
     assert mask_account_card(" Счет hello") == incorrect_data
@@ -32,16 +32,16 @@ def test_mask_account_card(incorrect_data):
 
 def test_get_date():
     """Тестирование правильности преобразования даты."""
-    assert mask_account_card("2024-03-11T02:26:18.671407") == "11.03.2024"
+    assert get_date("2024-03-11T02:26:18.671407") == "11.03.2024"
 
 
-def test_get_date(incorrect_data):
+def test_get_date_not_standart(incorrect_data):
     """Тестирование работы функции на различных входных форматах даты, включая граничные случаи и нестандартные строки с датами."""
-    assert mask_account_card("2024-03-11") == incorrect_data
-    assert mask_account_card("456456464") == incorrect_data
-    assert mask_account_card("hello") == incorrect_data
+    assert get_date("2024-03-11") == incorrect_data
+    assert get_date("456456464") == incorrect_data
+    assert get_date("hello") == incorrect_data
 
 
-def test_get_date(incorrect_data):
+def test_get_not_date(incorrect_data):
     """Тестирование, что функция корректно обрабатывает входные строки, где отсутствует дата."""
-    assert mask_account_card(" ") == incorrect_data
+    assert get_date(" ") == incorrect_data
