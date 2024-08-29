@@ -13,7 +13,7 @@ from src.masks import get_mask_account, get_mask_card_number
         ("5999414228426353", "5999 41** **** 6353"),
     ],
 )
-def test_get_mask_card_number(number_card, mask_number):
+def test_get_mask_card_number(number_card: str, mask_number: str) -> list:
     """Тестирование правильности маскирования номера карты"""
     assert get_mask_card_number(number_card) == mask_number
 
@@ -22,28 +22,28 @@ def test_get_mask_card_number(number_card, mask_number):
     "account, mask_account",
     [("64686473678894779589", "**9589"), ("35383033474447895560", "**5560"), ("73654108430135874305", "**4305")],
 )
-def test_get_mask_account(account, mask_account):
+def test_get_mask_account(account: str, mask_account: str) -> list:
     """Тестирование правильности маскирования счетов"""
     assert get_mask_account(account) == mask_account
 
 
-def test_get_mask_right_card_number(incorrect_data):
+def test_get_mask_right_card_number(incorrect_data: str) -> str:
     """Тестирование на првильность ввода номера карт"""
     assert get_mask_card_number("1234") == incorrect_data
     assert get_mask_card_number("hello") == incorrect_data
 
 
-def test_get_mask_card_not_number(incorrect_data):
+def test_get_mask_card_not_number(incorrect_data: str) -> str:
     """Тест при отстутствии номера карты"""
     assert get_mask_card_number("") == incorrect_data
 
 
-def test_get_mask_right_account(incorrect_data):
+def test_get_mask_right_account(incorrect_data: str) -> str:
     """Тестирование на првильность ввода счета"""
     assert get_mask_account("12351") == incorrect_data
     assert get_mask_account("hello!") == incorrect_data
 
 
-def test_get_mask_not_account(incorrect_data):
+def test_get_mask_not_account(incorrect_data: str) -> str:
     """Тест при отсутствии номера счета"""
     assert get_mask_account("") == incorrect_data
