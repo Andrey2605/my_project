@@ -1,4 +1,5 @@
 def log(filename=None):
+    """Декоратор для вывода функции в консоль и запись в файл"""
     def decarator(func):
         def wrapper(*args, **kwargs):
             result = None
