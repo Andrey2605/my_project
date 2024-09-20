@@ -79,7 +79,7 @@ def transaction_currency_usd() -> list:
             "description": "Перевод с карты на карту",
             "from": "Visa Classic 6831982476737658",
             "to": "Visa Platinum 8990922113665229",
-        }
+        },
     ]
 
 

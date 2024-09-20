@@ -49,7 +49,7 @@ transactions = [
 ]
 
 
-def filter_by_currency(transactions: list, currency: str)-> Generator:
+def filter_by_currency(transactions: list, currency: str) -> Generator:
     """Функция выдает транзакции, где валюта операции соответствует заданной."""
     if currency == "USD" or currency == "RUB":
         for transaction in transactions:
@@ -66,7 +66,7 @@ for i in range(3):
 print("\n")
 
 
-def transaction_descriptions(transactions: list)->Generator:
+def transaction_descriptions(transactions: list) -> Generator:
     """Функция принимает список словарей с транзакциями и возвращает описание каждой операции по очереди."""
     if transactions != []:
         for transaction in transactions:
@@ -83,7 +83,7 @@ for i in range(5):
 print("\n")
 
 
-def card_number_generator(start: int, stop: int)->Generator:
+def card_number_generator(start: int, stop: int) -> Generator:
     """Функция может сгенерировать номера карт в заданном диапазоне от 0000 0000 0000 0001 до 9999 9999 9999 9999."""
     number = "0000000000000000"
     for num in range(start, stop + 1):
