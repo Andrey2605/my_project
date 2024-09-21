@@ -12,6 +12,8 @@ def read_file(path: str) -> Any:
             return json_file
     except json.JSONDecodeError:
         return []
+    except FileNotFoundError:
+        return []
 
 
 def transaction_amount(transaction: dict, currency: str = "RUB") -> Any:
