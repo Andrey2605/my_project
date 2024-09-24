@@ -1,3 +1,5 @@
+from typing import Any
+
 import pytest
 
 
@@ -79,10 +81,46 @@ def transaction_currency_usd() -> list:
             "description": "Перевод с карты на карту",
             "from": "Visa Classic 6831982476737658",
             "to": "Visa Platinum 8990922113665229",
-        }
+        },
     ]
 
 
 @pytest.fixture()
 def translition() -> str:
     return "Перевод организации"
+
+
+@pytest.fixture()
+def path() -> str:
+    return "../data/operations.json"
+
+
+@pytest.fixture()
+def json_error() -> Any:
+    return "../data/operations_error.json"
+
+
+@pytest.fixture()
+def transaction() -> dict:
+    return {
+        "id": 441945886,
+        "state": "EXECUTED",
+        "date": "2019-08-26T10:50:58.294041",
+        "operationAmount": {"amount": "31957.58", "currency": {"name": "руб.", "code": "RUB"}},
+        "description": "Перевод организации",
+        "from": "Maestro 1596837868705199",
+        "to": "Счет 64686473678894779589",
+    }
+
+
+@pytest.fixture()
+def transaction_usd() -> dict:
+    return {
+        "id": 41428829,
+        "state": "EXECUTED",
+        "date": "2019-07-03T18:35:29.512364",
+        "operationAmount": {"amount": "8221.37", "currency": {"name": "USD", "code": "USD"}},
+        "description": "Перевод организации",
+        "from": "MasterCard 7158300734726758",
+        "to": "Счет 35383033474447895560",
+    }
