@@ -1,3 +1,5 @@
+from typing import Any
+
 import pytest
 
 from src.masks import get_mask_account, get_mask_card_number
@@ -13,7 +15,7 @@ from src.masks import get_mask_account, get_mask_card_number
         ("5999414228426353", "5999 41** **** 6353"),
     ],
 )
-def test_get_mask_card_number(number_card: str, mask_number: str) -> list:
+def test_get_mask_card_number(number_card: str, mask_number: str) -> Any:
     """Тестирование правильности маскирования номера карты"""
     assert get_mask_card_number(number_card) == mask_number
 
@@ -22,28 +24,28 @@ def test_get_mask_card_number(number_card: str, mask_number: str) -> list:
     "account, mask_account",
     [("64686473678894779589", "**9589"), ("35383033474447895560", "**5560"), ("73654108430135874305", "**4305")],
 )
-def test_get_mask_account(account: str, mask_account: str) -> list:
+def test_get_mask_account(account: str, mask_account: str) -> Any:
     """Тестирование правильности маскирования счетов"""
     assert get_mask_account(account) == mask_account
 
 
-def test_get_mask_right_card_number(incorrect_data: str) -> str:
+def test_get_mask_right_card_number(incorrect_data: str) -> Any:
     """Тестирование на првильность ввода номера карт"""
     assert get_mask_card_number("1234") == incorrect_data
     assert get_mask_card_number("hello") == incorrect_data
 
 
-def test_get_mask_card_not_number(incorrect_data: str) -> str:
+def test_get_mask_card_not_number(incorrect_data: str) -> Any:
     """Тест при отстутствии номера карты"""
     assert get_mask_card_number("") == incorrect_data
 
 
-def test_get_mask_right_account(incorrect_data: str) -> str:
+def test_get_mask_right_account(incorrect_data: str) -> Any:
     """Тестирование на првильность ввода счета"""
     assert get_mask_account("12351") == incorrect_data
     assert get_mask_account("hello!") == incorrect_data
 
 
-def test_get_mask_not_account(incorrect_data: str) -> str:
+def test_get_mask_not_account(incorrect_data: str) -> Any:
     """Тест при отсутствии номера счета"""
     assert get_mask_account("") == incorrect_data

@@ -1,5 +1,9 @@
+from typing import Any
+
+
 def log(filename=None):
     """Декоратор для вывода функции в консоль и запись в файл"""
+    
     def decarator(func):
         def wrapper(*args, **kwargs):
             result = None
@@ -26,8 +30,10 @@ def log(filename=None):
 
     return decarator
 
+
 @log(filename="mylog.txt")
-def my_function(x, y):
+def my_function(x: Any, y: Any) -> Any:
     return x + y
 
-my_function(1,"2" )
+
+my_function(1, "2")
