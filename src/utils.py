@@ -11,10 +11,11 @@ file_formater = logging.Formatter('%(asctime)s - %(name)s - %(levelname)s: %(mes
 file_handler.setFormatter(file_formater)
 logger.addHandler(file_handler)
 
+
 def read_file(path: str) -> Any:
     """Функция принимает на вход путь до JSON-файла и возвращает список словарей с данными о финансовых транзакциях."""
     try:
-        logger.info(f'Выполняем открытие файла JSON')
+        logger.info('Выполняем открытие файла JSON')
         with open(path, encoding="UTF8") as file_json:
             json_file = json.load(file_json)
             return json_file
@@ -28,7 +29,7 @@ def read_file(path: str) -> Any:
 
 def transaction_amount(transaction: dict, currency: str = "RUB") -> Any:
     """Функция принимает на вход транзакцию и возвращает сумму транзакции в рублях"""
-    logger.info(f'Выполняем проверку валюты')
+    logger.info('Выполняем проверку валюты')
     if transaction["operationAmount"]["currency"]["code"] == currency:
         amount = transaction["operationAmount"]["amount"]
     else:
