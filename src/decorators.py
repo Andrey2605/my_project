@@ -1,11 +1,10 @@
 from typing import Any
 
 
-def log(filename=None):
+def log(filename: Any = None)-> Any:
     """Декоратор для вывода функции в консоль и запись в файл"""
-    
-    def decarator(func):
-        def wrapper(*args, **kwargs):
+    def decarator(func: Any)->Any:
+        def wrapper(*args: Any, **kwargs: Any)->Any:
             result = None
             try:
                 result = func(*args, **kwargs)
