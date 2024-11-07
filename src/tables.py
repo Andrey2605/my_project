@@ -1,7 +1,7 @@
 import pandas as pd
+from typing import Any
 
-
-def get_transactions_excel(transaction_excel):
+def get_transactions_excel(transaction_excel: str)->list:
     """Функция для считывания финансовых операций из Excel выдает список словарей с транзакциями."""
     try:
         transactions_excel = pd.read_excel(transaction_excel)
@@ -11,11 +11,11 @@ def get_transactions_excel(transaction_excel):
         return []
 
 
-def get_transaction_csv(transaction_csv):
+def get_transactions_csv(transactions_csv: Any)->Any:
     """Функция для считывания финансовых операций из CSV выдает список словарей с транзакциями"""
     try:
-        transaction_csv = pd.read_csv(transaction_csv)
-        transact_csv = transaction_csv.to_dict(orient="records")
+        transactions_csv = pd.read_csv(transactions_csv, sep=";", decimal=",", encoding="utf-8")
+        transact_csv = transactions_csv.to_dict(orient="records")
         return transact_csv
     except FileNotFoundError:
         return []
