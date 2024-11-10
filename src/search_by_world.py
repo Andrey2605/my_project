@@ -15,6 +15,6 @@ def count_by_category(transactions: list[dict], category: list[str]) -> dict:
     count_by_category = []
     for transaction in transactions:
         if "description" in transaction and transaction["description"] in category:
-            count_by_category.append(transaction["decripton"])
+            count_by_category.append(transaction["decription"])
     count = Counter(count_by_category)
     return count
