@@ -59,6 +59,8 @@ def main() -> None:
 
     print(f"Операции отфильтрованы по статусу {user}")
 
+    """Сортировка операции по дате"""
+
     print("Отсортировать операции по дате? Да/Нет")
     user = str(input()).title()
     if user == "Да":
@@ -70,6 +72,8 @@ def main() -> None:
             reverse = True
         filter_transaction = sort_by_date(filter_transaction, reverse)
 
+    """Сортировка по рублевым транзакциям"""
+
     print("Выводить только рублевые тразакции? Да/Нет")
     user = str(input()).title()
     if user == "Да":
@@ -77,12 +81,16 @@ def main() -> None:
     elif user == "Нет":
         filter_transaction = filter_transaction
 
+    """Фильтр по определенному слову"""
+
     print("Отфильтровать список транзакций по определенному слову в описании? Да/Нет")
     user = str(input()).title()
     if user == "Да":
         print("Введите слово: ")
         world = input()
         filter_transaction = filter_by_world(filter_transaction, world)
+
+    """Итоговый спислк транзакций"""
 
     print("Распечатываю итоговый список транзакций...")
 
