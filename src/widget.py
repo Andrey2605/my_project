@@ -13,7 +13,4 @@ def mask_account_card(user: str) -> str:
 
 def get_date(date: str) -> str:
     """Функцию преобразования даты"""
-    if len(date) == 26 and date[4:8:3] == "--":
-        return f"{date[8:10]}.{date[5:7]}.{date[:4]}"
-    else:
-        return "Не корректные данные"
+    return f"{date[8:10]}.{date[5:7]}.{date[:4]}"

@@ -4,11 +4,6 @@ from pandas import DataFrame
 
 from src.tables import get_transaction_csv, get_transactions_excel
 
-# @patch("src.table.pd.read_excel")
-# def test_get_transactions_excel(mock):
-#     mock.return_value = []
-#     assert get_transactions_excel() == []
-
 
 @patch("pandas.read_excel")
 def test_get_transactions_excel(mock_read_excel):
